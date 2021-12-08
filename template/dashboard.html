@@ -15,6 +15,10 @@
 </head>
 <body>
     <h1>Employees details</h1>
+    <div>
+      {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}">Logout</a>
+          </div>
     <a href="/" name='Home'>Home</a>
     <a href="/admin/" name='Amin'>Admin</a>
     <table>
@@ -34,5 +38,10 @@
 </tr>
 
 {% endfor %}
+
+      {% else %}
+          <a href="{% url 'signup' %}">Sign Up</a>
+          <a href="{% url 'login' %}">Login</a>
+      {% endif %}
 </table>
 </html>
